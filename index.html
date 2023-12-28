@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+
+<style>
+    .table {
+        align-items: center;
+        width: 30%;
+        background-color: aquamarine;
+        margin: 50px auto;
+        padding: 10px;
+        column-gap: 100px;
+        text-align: center;
+        border: 2px solid rgb(19, 126, 117);
+    }
+
+    .title {
+        margin: 10px 38% auto;
+        align-items: center;
+    }
+
+    input {
+        outline: 0;
+        position: relative;
+        left: 5px;
+        top: 5px;
+        border: 0;
+        width: 73px;
+        height: 50px;
+        float: left;
+        margin: 6px;
+        font-size: 20px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 5px;
+        box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .display>input {
+        width: 95%;
+        height: 40px;
+        margin: 2px 2px 2px 2px;
+    }
+
+    #res {
+        font-size: 25px;
+        height: 55px;
+        background-color: #f1faeb;
+        text-align: right;
+        box-sizing: border-box;
+    }
+
+    .operator{
+        background-color: rgb(249, 222, 187);
+    }
+
+    #clear{
+        background-color: rgb(249, 183, 183);
+    }
+</style>
+<script>
+    function updateValue(val) {
+        document.getElementById("res").value += val;
+    }
+
+    function display(val) {
+        document.getElementById("res").value = val;
+    }
+    function calculateResult() {
+        try {
+            display(eval(document.getElementById("res").value))
+        }
+        catch (evaluate) {
+            display("Error")
+        }
+    }  
+</script>
+
+<body>
+
+    <div class="title">
+        <h1>MY CALCULATOR</h1>
+    </div>
+    <div class="base">
+        <form action="" class="calculator"></form>
+        <table class="table">
+            <tr>
+                <td>
+                    <div class="display">
+                        <input type="text" placeholder=" 0 " name="answer" id="res">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" name="one" id="digit1" value="1" onclick='updateValue("1")'>
+                    <input type="button" name="two" id="digit2" value="2" onclick='updateValue("2")'>
+                    <input type="button" name="three" id="digit3" value="3" onclick='updateValue("3")'>
+                    <input type="button" name="plus" class="operator" id="PlusBtn" value="+" onclick='updateValue("+")'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" name="four" id="digit4" value="4" onclick='updateValue("4")'>
+                    <input type="button" name="five" id="digit5" value="5" onclick='updateValue("5")'>
+                    <input type="button" name="six" id="digit6" value="6" onclick='updateValue("6")'>
+                    <input type="button" name="minus" class="operator" id="minueBtn" value="-"
+                        onclick='updateValue("-")'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" name="seven" id="digit7" value="7" onclick='updateValue("7")'>
+                    <input type="button" name="eight" id="digit8" value="8" onclick='updateValue("8")'>
+                    <input type="button" name="nine" id="digit9" value="9" onclick='updateValue("9")'>
+                    <input type="button" name="multiply" class="operator" id="multiplyBtn" value="*"
+                        onclick='updateValue("*")'>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" name="cancel"  id="clear" value="C" onclick='display(" ")'>
+                    <input type="button" name="zero" id="digit0" value="0" onclick='updateValue("0")'>
+                    <input type="button" name="equal" id="equalsign" value="=" onclick="calculateResult()">
+                    <input type="button" name="divide" class="operator" id="divideBtn" value="/"
+                        onclick='updateValue("/")'>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+
+</html>
